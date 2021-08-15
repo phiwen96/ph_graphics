@@ -24,6 +24,7 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 endif()
 
+
  
 if (NOT TARGET ph_cmake)
 	include (FetchContent)
@@ -39,6 +40,11 @@ if (NOT TARGET ph_cmake)
   		add_subdirectory (${ph_cmake_SOURCE_DIR} ${ph_cmake_BINARY_DIR})
 	endif ()
 endif ()
+
+
+
+find_package(Vulkan REQUIRED)
+
 
 FetchContent_Declare(glfw
   GIT_REPOSITORY https://github.com/glfw/glfw.git
