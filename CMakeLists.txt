@@ -16,6 +16,10 @@ project (
 
 unset (self)
 
+set(GLFW_BUILD_EXAMPLES OFF)
+set(GLFW_BUILD_TESTS OFF)
+set(GLFW_BUILD_DOCS OFF)
+
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	enable_testing()
 	set (CMAKE_CXX_STANDARD 20)
