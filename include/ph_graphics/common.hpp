@@ -2,8 +2,4 @@
 #include <iostream>
 
 
-namespace lib_phlex::common
-{
-    
-}
 
