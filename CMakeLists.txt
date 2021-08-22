@@ -16,9 +16,7 @@ project (
 
 unset (self)
 
-set(GLFW_BUILD_EXAMPLES OFF)
-set(GLFW_BUILD_TESTS OFF)
-set(GLFW_BUILD_DOCS OFF)
+
 
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 	enable_testing()
@@ -45,23 +43,28 @@ if (NOT TARGET ph_cmake)
 	endif ()
 endif ()
 
-Fetch (TARGETS "ph_concepts" "ph_data_structures" "ph_file")
+set(GLFW_BUILD_EXAMPLES OFF)
+set(GLFW_BUILD_TESTS OFF)
+set(GLFW_BUILD_DOCS OFF)
 
+Fetch (TARGETS "glfw" REPO "glfw" TAG "3.3.4" )
+
+Fetch (TARGETS "ph_concepts" "ph_data_structures" "ph_file")
 
 
 find_package(Vulkan REQUIRED)
 
 
-FetchContent_Declare(glfw
-  GIT_REPOSITORY https://github.com/glfw/glfw.git
-  INSTALL_COMMAND ""
-  )
+# FetchContent_Declare(glfw
+#   GIT_REPOSITORY https://github.com/glfw/glfw.git
+#   INSTALL_COMMAND ""
+#   )
 
-FetchContent_GetProperties(glfw)
-if(NOT glfw_POPULATED)
-  FetchContent_Populate(glfw)
-  add_subdirectory(${glfw_SOURCE_DIR} ${glfw_BINARY_DIR} EXCLUDE_FROM_ALL)
-endif()
+# FetchContent_GetProperties(glfw)
+# if(NOT glfw_POPULATED)
+#   FetchContent_Populate(glfw)
+#   add_subdirectory(${glfw_SOURCE_DIR} ${glfw_BINARY_DIR} EXCLUDE_FROM_ALL)
+# endif()
 
 
 
