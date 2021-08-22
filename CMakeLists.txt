@@ -45,6 +45,8 @@ if (NOT TARGET ph_cmake)
 	endif ()
 endif ()
 
+Fetch (TARGETS "ph_concepts" "ph_data_structures" "ph_file")
+
 
 
 find_package(Vulkan REQUIRED)
