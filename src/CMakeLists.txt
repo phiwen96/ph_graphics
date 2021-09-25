@@ -64,8 +64,8 @@ target_compile_features (lib PUBLIC cxx_std_20)
 ph_precompile (TARGET lib PRIVATE PCH ${std_pch})
 
 # add_library (${CMAKE_PROJECT_NAME} ALIAS ${CMAKE_PROJECT_NAME}::${CMAKE_PROJECT_NAME})
-target_link_libraries (lib PRIVATE    ${Vulkan_LIBRARIES} glfw)
-target_include_directories (lib PUBLIC ${CMAKE_PROJECT_SOURCE_DIR}/include PRIVATE ${Vulkan_INCLUDE_DIR} glfw)
+target_link_libraries (lib PRIVATE    ph_concepts ${Vulkan_LIBRARIES} glfw)
+target_include_directories (lib PUBLIC ph_concepts ${CMAKE_PROJECT_SOURCE_DIR}/include PRIVATE ${Vulkan_INCLUDE_DIR} glfw)
 # target_include_directories (ph_concepts PRIVATE ${Boost_INCLUDE_DIRS})
 
 target_compile_features (lib PUBLIC cxx_std_20)
