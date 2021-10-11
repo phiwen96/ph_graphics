@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.19.4)
+cmake_minimum_required (VERSION 3.18.4)
 
 file (TO_CMAKE_PATH "${PROJECT_BINARY_DIR}/CMakeLists.txt" LOC_PATH)
 if (EXISTS "${LOC_PATH}")
@@ -33,7 +33,7 @@ if (NOT TARGET ph_cmake)
 	FetchContent_Declare(
   		ph_cmake
   		GIT_REPOSITORY https://github.com/phiwen96/ph_cmake.git
-  		GIT_TAG        v0.0.0)
+  		GIT_TAG        0.0.0)
 
 	FetchContent_GetProperties (ph_cmake)
 	
@@ -47,9 +47,9 @@ set(GLFW_BUILD_EXAMPLES OFF)
 set(GLFW_BUILD_TESTS OFF)
 set(GLFW_BUILD_DOCS OFF)
 
-Fetch (TARGETS "glfw" REPO "glfw" TAG "3.3.4" )
+# Fetch (TARGETS "glfw" REPO "glfw" TAG "3.3.4" )
 
-Fetch (TARGETS "ph_concepts" "ph_data_structures" "ph_file")
+Fetch (TARGETS "ph_concepts")
 
 
 find_package(Vulkan REQUIRED)
