@@ -19,19 +19,45 @@ auto b (auto f) noexcept (f ())
     f ();
 }
 
+struct c
+{
+    ~c()
+    {
+        cout << "C" << endl;
+    }
+};
+
+struct d : c
+{
+    ~d()
+    {
+        cout << "D" << endl;
+    }
+};
+
 int main (int, char**) 
 {
     glfwInit ();
+    auto aa = d {};
     
-    auto instance = Instance {};
-    auto gpu = GPU {instance};
+    auto instance = Instance {"app0"};
+    auto debugger = Debugger {instance};
+//    auto gpu = GPU {instance};
     auto window = Window {100, 100};
-    window.open ();
+    
+    auto& gpus = instance.physicalDevices();
+    
+    auto gpu = GPU {gpus [0], instance};
+    
+    
+    
+//    auto surface = Surface (instance, window);
+//    window.open ();
     cout << "hej" << endl;
     
     
     
     
-    glfwTerminate ();
+//    glfwTerminate ();
     return 0;
 }
