@@ -1,11 +1,11 @@
 file(GLOB HEADER_LIST CONFIGURE_DEPENDS "../include/${CMAKE_PROJECT_NAME}/*.hpp")
 
-foreach(file ${HEADER_LIST})
-    source_group (TREE include/${CMAKE_PROJECT_NAME}
-        PREFIX "include"               
-        FILES  ${file}
-    )
-endforeach()
+# foreach(file ${HEADER_LIST})
+#     source_group (TREE include/${CMAKE_PROJECT_NAME}
+#         PREFIX "include"               
+#         FILES  ${file}
+#     )
+# endforeach()
 
 
 file(GLOB SOURCE_LIST CONFIGURE_DEPENDS "*.cpp")
